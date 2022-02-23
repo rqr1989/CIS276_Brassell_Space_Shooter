@@ -14,16 +14,16 @@ public class Player : MonoBehaviour
     private PlayerCam playerCam;
    
 
-    [SerializeField] private float speed = 1f;
+    [SerializeField] private float speed = 2f;
 
-    [SerializeField] private float jumpForce = 3f;
+   
 
     private void Awake()
     {
         //sets rb equal to Rigibody
         rb = GetComponent<Rigidbody>();
 
-        playerCam = FindObjectOfType<PlayerCam>();
+       // playerCam = FindObjectOfType<PlayerCam>();
        
 
     }
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     }
     private void MovePlayer()
     {
-        transform.forward = playerCam.transform.forward;
+       // transform.forward = player.transform.forward;
 
         Vector3 directionX = transform.right.normalized * moveInput.x;
 
