@@ -8,7 +8,8 @@ public class projectile : MonoBehaviour
     public LayerMask mask;
     public float health = 20;
     public float score = 0;
-    [SerializeField] private float speed = 6f;
+    [SerializeField] private float speed = 20f;
+    //[SerializeField] private float speed = 6f;
     //The enemy should take damage (maybe receive a little bit of knockback),
     //record this damage change in the console using Debug.Log and the name of the variable you’re using to calculate health.
     // Update is called once per frame

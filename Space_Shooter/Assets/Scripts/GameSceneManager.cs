@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,13 @@ using UnityEngine.SceneManagement;
 //loading in to new l
 public class GameSceneManager : MonoBehaviour
 {
-    public float uiLoadTime = 0.5f;
     public static GameSceneManager Instance;
+    public float uiLoadTime = 0.5f;
     private AsyncOperation asynOperation;
+   
     private void Awake()
     {
+         
         if (Instance == null)
         {
             Instance = this;
@@ -23,17 +26,20 @@ public class GameSceneManager : MonoBehaviour
         GetReferences();
     }
 
+ 
+
     public void GetReferences()
     {
         //find any data i want in new scene
         //FindObjectOfType<Player>();
+        
     }
 
     public void LoadScene(string sceneName)
     {
         StartCoroutine(LoadNewScene(sceneName));
     }
-
+   // SpaceShooterScene
     private IEnumerator LoadNewScene(string sceneName)
     {
         yield return null;

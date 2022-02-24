@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     {
         //assign
         moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        rb.AddForce( moveInput * speed * Time.deltaTime);
+        //rb.AddForce( moveInput * speed * Time.deltaTime);
         //jump
         if (Input.GetKeyDown(KeyCode.Space))
         {
