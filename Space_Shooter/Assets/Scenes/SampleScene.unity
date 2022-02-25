@@ -968,9 +968,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b4fe803af4aa24fbfa92bbc1c93eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneName: 
   startButton: {fileID: 350195714}
   exitButton: {fileID: 1155824636}
+  gameSceneName: SampleScene
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

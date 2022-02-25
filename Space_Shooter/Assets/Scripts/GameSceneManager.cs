@@ -35,19 +35,19 @@ public class GameSceneManager : MonoBehaviour
         
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(string gameSceneName)
     {
-        StartCoroutine(LoadNewScene(sceneName));
+        StartCoroutine(LoadNewScene(gameSceneName));
     }
    // SpaceShooterScene
-    private IEnumerator LoadNewScene(string sceneName)
+    private IEnumerator LoadNewScene(string gameSceneName)
     {
         yield return null;
         //pauses anything run in update fiunction
         Time.timeScale = 0f;
 
         yield return new WaitForSecondsRealtime(uiLoadTime);
-        asynOperation = SceneManager.LoadSceneAsync(sceneName);
+        asynOperation = SceneManager.LoadSceneAsync(gameSceneName);
         while (!asynOperation.isDone)
         {
             yield return null; //wait single frame
