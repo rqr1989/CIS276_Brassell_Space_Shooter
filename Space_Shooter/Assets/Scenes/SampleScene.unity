@@ -970,7 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 350195714}
   exitButton: {fileID: 1155824636}
-  gameSceneName: SampleScene
+  gameSceneName: SpaceShooterScene
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

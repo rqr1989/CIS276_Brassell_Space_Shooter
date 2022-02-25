@@ -15,6 +15,9 @@ public class MainMenuUI : MonoBehaviour
      
         startButton.onClick.AddListener(LoadGameScene);
 
+        
+
+
     }
 
     // Update is called once per frame
