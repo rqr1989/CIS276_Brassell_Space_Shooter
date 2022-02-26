@@ -41,6 +41,11 @@ public class FireWeapons : MonoBehaviour
         {
             //draw line form input position to when hit
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
+
+            //destroys projectlie when it hits an enemy or astroid
+            Destroy(projectile);
+
+            
         }
         else
         {

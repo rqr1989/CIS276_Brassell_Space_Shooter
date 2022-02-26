@@ -1,52 +1,77 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
     public GameObject enemyShipPrefab;
     public GameObject game_screen_area;
+    public int Health = 15;
+    //coordinate for top corners of screen
+    public double top_left_cornerX = 1;
+    public double top_right_cornerX = 648;
 
-    public int enemy_count = 0;
-    public int enemy_limit = 25;
-    public int ships_per_frame = 1;
+    public float speed = 1;
   
-    //spawn enemies inside game screen
-    public float spawn_Radius = 150.0f;
-
-    //float that determines when to delete enemies outside screen
-    public float delete_circles_radius = 160.0f;
-
-    public float fast_speed = 25.0f;
-    public float slow_speed = 1.0f;
-
-    private void Start()
-    {
-        
-    }
     private void Update()
     {
-   
+       // while (enemyShipPrefab.transform.position.y > 0)
+       // {
+            //move enemy ship down by 1
+            Vector3 movement = new Vector3(0, -1, 0);
+            transform.Translate(movement * speed * Time.deltaTime);
+     //   }
+
+          //ship doesnt move corectly when this is not commented out
+    /**   if (enemyShipPrefab.transform.position.y <= 0)
+        {
+            //destorys the enemy
+            Destroy(enemyShipPrefab);
+
+        }
+      **/
+    //attempting to determie corners of screen but not sure they aligh with the canvas corners
+
+        //spawn enemy 
+        //Enemies/Obstacles should all spawn near the top of the screen,
+        //they should be able to spawn anywhere along the width of the screen(Making sure they are always visible until they move off screen)
+
+        void SpawnEnemy()
+        {
+            //number of ships that spawn at a time
+            int SpawnAmount = Random.Range(1, 3);
+
+            //X coordinate Range for spawning 
+           int spawnSpotX = Random.Range(1, 649);
             
+            //y coordinate range for spawning
+           int spawnSpotY = Random.Range(250, 418);
+
+          //  Transform spawnSpot = spawnSpotX, spawnSpotY;
+        //    spawnSpot.transform.position.x = spawnSpotX;
+        //spawnSpot.transform.position.y = spawnSpotY;
+
+           // Instantiate(enemyShipPrefab.SpawnAmount, spawnSpot);
+
+        }
+   
+
     }
-/**Vector3 GetRandomPosition()
+    //checks whether enemy is off screen or has no health left and destroys enemy
+
+    public void CheckEnemyDestory()
+
     {
-        Vector3 position = Random.insideUnitCircle.normalized;
-
-        position *= spawn_Radius;
-
-        position += game_screen_area.transform.position;
+        //if ship is below the screen
+       if (enemyShipPrefab.transform.position.y <= 0)
+        {
+            //destorys the enemy
+            Destroy(enemyShipPrefab);
+        }
+       //if health is 0 or less destroy enemy
+       else if (Health <=0)
+        {
+            Destroy(enemyShipPrefab);
+        }
     }
-**/
-  
-   // Random.Range will be your friend for the behavior of these!
-//Enemies/Obstacles should all spawn near the top of the screen,
-//they should be able to spawn anywhere along the width of the screen(Making sure they are always visible until they move off screen)
- //The spawning setup will require some creative thinking.A hint would be that you can get x coordinates for the left and right of your screen and the y coordinates
- //for the area you wish for them to be able to spawn in, and use those to decide where to instantiate the position
-//Enemies move towards the bottom of the screen, once they are off screen they should be destroyed
-
-
-//Random Spawn amounts (should be a configurable range of how many enemies can spawn in at the same time)
-//Random time in-between spawns(configurable range for how often they can spawn)
+   
+   
 }
