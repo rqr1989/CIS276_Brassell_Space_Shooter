@@ -13,22 +13,23 @@ public class enemy : MonoBehaviour
   
     private void Update()
     {
-       // while (enemyShipPrefab.transform.position.y > 0)
+       // while (enemyShipPrefab.transform.position.y > 2.3)
        // {
             //move enemy ship down by 1
             Vector3 movement = new Vector3(0, -1, 0);
             transform.Translate(movement * speed * Time.deltaTime);
-     //   }
+        //   }
 
-          //ship doesnt move corectly when this is not commented out
-    /**   if (enemyShipPrefab.transform.position.y <= 0)
-        {
-            //destorys the enemy
-            Destroy(enemyShipPrefab);
+        //ship doesnt move corectly when this is not commented out
+        /**   if (enemyShipPrefab.transform.position.y <= 2.3)
+            {
+                //destorys the enemy
+                Destroy(enemyShipPrefab);
 
-        }
-      **/
-    //attempting to determie corners of screen but not sure they aligh with the canvas corners
+            }
+          **/
+     
+    //attempting to determine corners of screen but not sure they aligh with the canvas corners
 
         //spawn enemy 
         //Enemies/Obstacles should all spawn near the top of the screen,
@@ -45,18 +46,22 @@ public class enemy : MonoBehaviour
             //y coordinate range for spawning
            int spawnSpotY = Random.Range(250, 418);
 
-          //  Transform spawnSpot = spawnSpotX, spawnSpotY;
-        //    spawnSpot.transform.position.x = spawnSpotX;
-        //spawnSpot.transform.position.y = spawnSpotY;
 
-           // Instantiate(enemyShipPrefab.SpawnAmount, spawnSpot);
+
+            //move enemy ship down by 1
+            //Vector3 movement = new Vector3(0, -1, 0);
+            //transform.Translate(movement * speed * Time.deltaTime);
+            //  Transform spawnSpot = spawnSpotX, spawnSpotY;
+            //    spawnSpot.transform.position.x = spawnSpotX;
+            //spawnSpot.transform.position.y = spawnSpotY;
+
+            // Instantiate(enemyShipPrefab.SpawnAmount, spawnSpot);
 
         }
    
 
     }
     //checks whether enemy is off screen or has no health left and destroys enemy
-
     public void CheckEnemyDestory()
 
     {

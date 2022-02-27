@@ -22,18 +22,12 @@ public class GameSceneManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        // 
-        GetReferences();
+     
     }
 
  
 
-    public void GetReferences()
-    {
-        //find any data i want in new scene
-        //FindObjectOfType<Player>();
-        
-    }
+  
 
     public void LoadScene(string sceneName)
     {

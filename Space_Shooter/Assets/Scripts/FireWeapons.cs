@@ -39,6 +39,8 @@ public class FireWeapons : MonoBehaviour
         }
         if (Physics.Raycast(ray, out hitInfo, 75f, mask))
         {
+
+
             //draw line form input position to when hit
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
 
@@ -47,11 +49,12 @@ public class FireWeapons : MonoBehaviour
 
             
         }
-        else
+        
+        else 
         {
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * 75, Color.green);
         }
-
+      
 
 
     }

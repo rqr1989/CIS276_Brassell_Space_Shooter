@@ -13,13 +13,14 @@ public class PauseMenu : MonoBehaviour
     public string gameSceneName;
     public Button pause;
     public GameObject PauseMenuOnOff;
-    public static bool GameIsPaused = false;
+    //public static bool GameIsPause;
     // Start is called before the first frame update
     void Start()
     {
-        GameIsPaused = false;
-        // pause.onClick.AddListener()
+      
+       
         pause.onClick.AddListener(PauseGame);
+
         mainMenu.onClick.AddListener(LoadGameScene);
         exitButton.onClick.AddListener(OnApplicationQuit);
          resume.onClick.AddListener(ResumeGame);
