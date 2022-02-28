@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        
+        //needs to access pause menu in update function
     }
     void PauseGame()
     {

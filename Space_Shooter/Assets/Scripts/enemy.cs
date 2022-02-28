@@ -46,7 +46,7 @@ public class enemy : MonoBehaviour
             //y coordinate range for spawning
            int spawnSpotY = Random.Range(250, 418);
 
-
+            //spawn enemy then move down screen then destroy off screen
 
             //move enemy ship down by 1
             //Vector3 movement = new Vector3(0, -1, 0);
@@ -78,5 +78,9 @@ public class enemy : MonoBehaviour
         }
     }
    
-   
+   public void SpawnTime()
+    {
+        //Range of  seconds between spawns
+     float spawnTime =  Random.Range(1, 5);
+    }
 }
