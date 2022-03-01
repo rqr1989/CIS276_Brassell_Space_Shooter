@@ -40,20 +40,17 @@ public class enemy : MonoBehaviour
             //number of ships that spawn at a time
             int SpawnAmount = Random.Range(1, 3);
 
-            //X coordinate Range for spawning 
-           int spawnSpotX = Random.Range(1, 649);
-            
-            //y coordinate range for spawning
-           int spawnSpotY = Random.Range(250, 418);
+            //Range of  seconds between spawns
+            float spawnTime = Random.Range(1, 5);
+
+            //Determine Screen Coordinates
 
             //spawn enemy then move down screen then destroy off screen
 
             //move enemy ship down by 1
             //Vector3 movement = new Vector3(0, -1, 0);
             //transform.Translate(movement * speed * Time.deltaTime);
-            //  Transform spawnSpot = spawnSpotX, spawnSpotY;
-            //    spawnSpot.transform.position.x = spawnSpotX;
-            //spawnSpot.transform.position.y = spawnSpotY;
+           
 
             // Instantiate(enemyShipPrefab.SpawnAmount, spawnSpot);
 
@@ -77,10 +74,8 @@ public class enemy : MonoBehaviour
             Destroy(enemyShipPrefab);
         }
     }
-   
-   public void SpawnTime()
-    {
-        //Range of  seconds between spawns
-     float spawnTime =  Random.Range(1, 5);
-    }
+
+    //  Transform spawnSpot = spawnSpotX, spawnSpotY;
+    //    spawnSpot.transform.position.x = spawnSpotX;
+    //spawnSpot.transform.position.y = spawnSpotY;
 }

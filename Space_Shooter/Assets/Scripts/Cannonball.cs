@@ -23,16 +23,7 @@ public class Cannonball : MonoBehaviour
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
             health -= 10;
             GetComponent<Rigidbody>().AddForce(Vector3.left * 10f, ForceMode.Impulse);
-            if (health >= 1)
-            {
-                Debug.Log("It's a hit! Enemy health is now " + health);
-            }
-            else if (health == 0)
-            {
-                DestroyEnemy();
-                score += 5;
-                Debug.Log("Score" + score);
-            }
+          
 
 
         }
@@ -40,10 +31,7 @@ public class Cannonball : MonoBehaviour
         {
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * 75, Color.green);
         }
-        void DestroyEnemy()
-        {
-            Destroy(Enemy);
-        }
+        
     }
 }
 

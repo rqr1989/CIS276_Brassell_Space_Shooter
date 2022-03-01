@@ -6,7 +6,7 @@ public class projectile : MonoBehaviour
 {
     public GameObject Enemy;
     public LayerMask mask;
-    public float health = 20;
+    public float health = 5;
     public float score = 0;
     [SerializeField] private float speed = 20f;
     //[SerializeField] private float speed = 6f;
@@ -23,7 +23,7 @@ public class projectile : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(Vector3.left * 10f, ForceMode.Impulse);
             //draw line form input position to when hit
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-            health -= 5;
+         /**   health -= 5;
             if (health >= 1)
             {
                 Debug.Log("It's a hit! Enemy health is now " + health);
@@ -34,6 +34,7 @@ public class projectile : MonoBehaviour
                 score += 5;
                 Debug.Log("Score" + score);
             }
+         **/
 
            
         }
@@ -41,9 +42,9 @@ public class projectile : MonoBehaviour
         {
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * 75, Color.green);
         }
-        void DestroyEnemy()
+      /**  void DestroyEnemy()
         {
             Destroy(Enemy);
-        }
+        } **/
     }
 }
