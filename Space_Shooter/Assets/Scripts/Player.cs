@@ -7,22 +7,13 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    // x coordinate : -13
+
     public float rightBoundry;
-
-    //x coordinate : -78
     public float leftBoundry;
-    //y coordinate : 27
     public float topBoundry;
-    // y coordinate: -39
     public float bottomBoundry;
-
     private Vector3 moveInput;
     [SerializeField] private Rigidbody rb;
-
-    private PlayerCam playerCam;
-   
-
     [SerializeField] private float speed = 5f;
  
    
@@ -31,7 +22,24 @@ public class Player : MonoBehaviour
     {
         //sets rb equal to Rigibody
         rb = GetComponent<Rigidbody>();
-       
+        Camera cam = FindObjectOfType<Camera>();
+        //Get coordinates for bottom left corner of screen
+        Vector3 bottomLeft = cam.ViewportToWorldPoint(new Vector3(0.2f, 0.2f, transform.position.z));
+       //Get coordinates for top right coner of screen
+        Vector3 topRight = cam.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, transform.position.z));
+        //assign bottomleft's x coordinate to leftBoundry
+        leftBoundry = bottomLeft.x;
+
+        //assign topright's x coordinate to rightBoundry
+        rightBoundry = topRight.x;
+
+        //Assign topRight's y coordinate to topBoundry
+        topBoundry = topRight.y;
+        //Assign bottomLeft's y coordinate to bottomBoundry
+        bottomBoundry = bottomLeft.y;
+
+        //make sure player starts at center of screen
+        transform.position = new Vector3(((leftBoundry + rightBoundry) / 2), (topBoundry + bottomBoundry) / 2, transform.position.z);
 
     }
     //works with physics timestep
@@ -49,21 +57,17 @@ public class Player : MonoBehaviour
     }
     private void MovePlayer()
     {
-       // transform.forward = player.transform.forward;
 
-        Vector3 directionX = transform.right.normalized * moveInput.x;
 
-       Vector3 directionZ = transform.up.normalized * moveInput.z;
+        Vector3 directionX;
+        Vector3 directionZ;
+        directionX = transform.right.normalized * moveInput.x;
+        directionZ = transform.up.normalized * moveInput.z;
+        rb.velocity =  (directionX + directionZ) * speed * Time.deltaTime;
 
-      /**  if (directionX. > rightBoundry)
-        {
-
-        }
-    **/
-
-       rb.velocity = new Vector3(0, rb.velocity.y, 0) + (directionX + directionZ) * speed * Time.deltaTime;
-
-       // if()
+            //Make Sure Ship Stays Within the boundries
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, leftBoundry, rightBoundry),
+            Mathf.Clamp(transform.position.y, bottomBoundry, topBoundry), transform.position.z);
 
     }
 
