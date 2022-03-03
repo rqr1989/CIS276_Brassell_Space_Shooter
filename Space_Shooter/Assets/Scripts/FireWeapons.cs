@@ -14,6 +14,7 @@ public class FireWeapons : MonoBehaviour
     public GameObject projectile;
     [SerializeField]
     private bool isBullet = true;
+   
 
     // Update is called once per frame
     void Update()
@@ -37,7 +38,7 @@ public class FireWeapons : MonoBehaviour
             projectile.GetComponent<Rigidbody>().AddForce(Vector3.forward * 15f, ForceMode.Impulse);
 
         }
-        if (Physics.Raycast(ray, out hitInfo, 75f, mask))
+        if (Physics.Raycast(ray, out hitInfo, 200f, mask))
         {
 
 
@@ -47,12 +48,13 @@ public class FireWeapons : MonoBehaviour
             //destroys projectlie when it hits an enemy or astroid
             Destroy(projectile);
 
-            
+            Debug.Log("Its a Hit");
         }
         
         else 
         {
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * 75, Color.green);
+            Debug.Log("Aww you missed");
         }
       
 

@@ -4,41 +4,69 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    public GameObject enemyShip;
+    public float rightBoundry = 37.63396f;
+    public float leftBoundry = -34.95398f;
+    public float topBoundry = 25.55841f;
+    public float bottomBoundry = 5f;
+    public int Health = 15;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private float speed = 5f;
+    public float lowestSpawnPoint = 15;
+    public int spawnLow = 1;
+    public int spawnHigh = 4;
+    public float spawnTimeLow = 1f;
+    public float spawnTimeHigh = 3f;
 
-    public float rightBoundry;
-    public float leftBoundry;
-    public float topBoundry;
-    public float bottomBoundry;
     // Start is called before the first frame update
     void Awake()
     {
-        Camera cam = FindObjectOfType<Camera>();
-        //Get coordinates for bottom left corner of screen
-        Vector3 bottomLeft = cam.ViewportToWorldPoint(new Vector3(0.2f, 0.2f, transform.position.z));
-        //Get coordinates for top right coner of screen
-        Vector3 topRight = cam.ViewportToWorldPoint(new Vector3(0.8f, 0.8f, transform.position.z));
-        //assign bottomleft's x coordinate to leftBoundry
-        leftBoundry = bottomLeft.x;
-
-        //assign topright's x coordinate to rightBoundry
-        rightBoundry = topRight.x;
-
-        //Assign topRight's y coordinate to topBoundry
-        topBoundry = topRight.y;
-        //Assign bottomLeft's y coordinate to bottomBoundry
-        bottomBoundry = bottomLeft.y;
-
-        //make sure player starts at center of screen
-        transform.position = new Vector3(((leftBoundry + rightBoundry) / 2), (topBoundry + bottomBoundry) / 2, transform.position.z);
+        //sets rb equal to Rigibody
+        rb = GetComponent<Rigidbody>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject enemy;
+        //creates enemy instance
+        enemy = Instantiate(enemyShip);
+     
+        //spawns enemy within top half of screen
+        enemy.transform.position = new Vector3(Random.Range(leftBoundry, rightBoundry), Random.Range(lowestSpawnPoint, topBoundry), 160f);
+        spawnEnemy();
+
+        //move enemy ship down by 1
+        Vector3 movement = new Vector3(0, 1, 0);
+        enemy.transform.Translate(movement * speed * Time.deltaTime);
+
+        //checks whether enemy is off screen or has no health left and destroys enemy
+
+        //if ship is below the screen
+        if (enemy.transform.position.y <= bottomBoundry)
+        {
+            //destorys the enemy
+            Destroy(enemy);
+        }
+        //if health is 0 or less destroy enemy
+        else if (Health <= 0)
+        {
+            Destroy(enemy);
+        }
+      
+
     }
 
-    
+    void spawnEnemy()
+    {
+        StartCoroutine("SpawnTime");
+    }
+
+    IEnumerator SpawnTime()
+    {
+        
+            yield return new WaitForSeconds(Random.Range(1f, 3f));
+    }
     
 }

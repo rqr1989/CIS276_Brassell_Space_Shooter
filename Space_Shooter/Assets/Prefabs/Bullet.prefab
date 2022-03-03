@@ -127,10 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d53591d90ad4e48ad45c338507c775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 385923307382795594, guid: 5e84c96d0f4ad9d40bf91356097d247f, type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 256
   health: 20
   score: 0
-  speed: 10
+  speed: 50
