@@ -1142,10 +1142,9 @@ MonoBehaviour:
   rb: {fileID: 786886426}
   speed: 1
   lowestSpawnPoint: 0
-  spawnLow: 1
-  spawnHigh: 3
-  spawnTimeLow: 1
-  spawnTimeHigh: 5
+  spawnTimeLow: 2
+  spawnTimeHigh: 6
+  spawnDelay: 1
 --- !u!1 &911143220
 GameObject:
   m_ObjectHideFlags: 0
