@@ -11,21 +11,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: vehicle_enemyShip Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9ddab293e2a8af3499dac05f5fd6169c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102,6 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a014ba41f260b44480f88a8d77cfcc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyShipPrefab: {fileID: 0}
-  Health: 15
+  enemyShipPrefab: {fileID: 385923307382795594}
+  Health: 20
   speed: 1

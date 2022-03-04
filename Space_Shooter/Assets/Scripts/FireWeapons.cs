@@ -38,7 +38,7 @@ public class FireWeapons : MonoBehaviour
             projectile.GetComponent<Rigidbody>().AddForce(Vector3.forward * 15f, ForceMode.Impulse);
 
         }
-        if (Physics.Raycast(ray, out hitInfo, 200f, mask))
+        if (Physics.Raycast(ray, out hitInfo, 300f, mask))
         {
 
 
@@ -53,7 +53,7 @@ public class FireWeapons : MonoBehaviour
         
         else 
         {
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 75, Color.green);
+            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 300, Color.green);
             Debug.Log("Aww you missed");
         }
       

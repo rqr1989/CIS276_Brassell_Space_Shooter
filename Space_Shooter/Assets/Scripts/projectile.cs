@@ -18,29 +18,18 @@ public class projectile : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(ray, out hitInfo, 75f, mask))
+        if (Physics.Raycast(ray, out hitInfo, 300f, mask))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.left * 10f, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * 10f, ForceMode.Impulse);
             //draw line form input position to when hit
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-         /**   health -= 5;
-            if (health >= 1)
-            {
-                Debug.Log("It's a hit! Enemy health is now " + health);
-            }
-            else if (health == 0)
-            {
-                DestroyEnemy();
-                score += 5;
-                Debug.Log("Score" + score);
-            }
-         **/
+  
 
            
         }
         else
         {
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 75, Color.green);
+            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 300, Color.green);
         }
       /**  void DestroyEnemy()
         {

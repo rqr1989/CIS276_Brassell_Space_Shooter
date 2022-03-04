@@ -36,16 +36,16 @@ public class EnemySpawn : MonoBehaviour
     // Update is called once per frame
     void EnemyShipSpawn()
     {
-        
+       // spawnindex = Random.Range(0, SpawnPoints.Length); objectindex = Random.Range(0, Objetos.Length);
+
+        GameObject enemy;
        
-         GameObject enemy;
-     
         //creates enemy instance
         enemy = Instantiate(enemyShip);
 
        
         //spawns enemy within top half of screen
-        enemy.transform.position = new Vector3(Random.Range(leftBoundry, rightBoundry), Random.Range(lowestSpawnPoint, topBoundry), 160f);
+        enemy.transform.position = new Vector3(Random.Range(leftBoundry, rightBoundry), Random.Range(lowestSpawnPoint, topBoundry), 120f);
     
 
         numberOfEnemys = Random.Range(1, 4);

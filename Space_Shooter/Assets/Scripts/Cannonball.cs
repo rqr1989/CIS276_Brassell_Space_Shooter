@@ -18,7 +18,7 @@ public class Cannonball : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(ray, out hitInfo, 75f, mask))
+        if (Physics.Raycast(ray, out hitInfo, 300f, mask))
         {
             //draw line form input position to when hit
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
@@ -35,7 +35,7 @@ public class Cannonball : MonoBehaviour
         }
         else
         {
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 75, Color.green);
+            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 300, Color.green);
             if (transform.position.z >= zLimit)
             {
                 //destroys projectlie when it hits an enemy or astroid
